@@ -1,3 +1,20 @@
+body{
+    background-color: rgb(190, 129, 247);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    width: 80%;
+    height: 80%;
+    background-color: blanchedalmond;
+    display: grid;
+    grid-template: row;
+
+}
+
 .divona{
-    
+    display: inline-block;
 }
