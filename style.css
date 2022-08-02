@@ -10,11 +10,19 @@ body{
     width: 80%;
     height: 80%;
     background-color: blanchedalmond;
-    display: grid;
-    grid-template: row;
+    display: flex;
+    flex-direction: column;
+    
 
 }
 
 .divona{
-    display: inline-block;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+
+}
+
+.form > label {
+    display: block;
 }
