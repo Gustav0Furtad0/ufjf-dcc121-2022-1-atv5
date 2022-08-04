@@ -15,7 +15,7 @@
             <div class="form">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" placeholder="Nome" />
-                <input type="submit" value="Adicionar">
+                <button onclick="adicionar()">Adicionar</button>
             </div>
 
             <div class="form">
@@ -29,35 +29,35 @@
             </div>
 
             <div class="botoes">
-                <input type="submit" value="Custo Fixo ">
-                <input type="submit" value="Per Capita">
+                 <button onclick="custofixo()">Custo Fixo</button>
+                <button onclick="percapita()">Per Capita</button>
             </div>
 
         </div>
         <div class="divona">
             <div>
                 <h1>Pessoas:</h1>
-                <ul>
-                    <li>Jacinto <input type="submit" class="excluir" value="X"></li>
-                    <li>Beltrano <input type="submit" class="excluir" value="X"></li>
-                    <li>Rogerio <input type="submit" class="excluir" value="X"></li>
+                <ul id="lista">
+                    <li>Jacinto <button onclick="excluirlista()" class="excluir" id="excluirlista">X</button></li>
+                    <li>Beltrano<button onclick="excluirlista()" class="excluir" id="excluirlista">X</button></li>
+                    <li>Rogerio <button onclick="excluirlista()" class="excluir" id="excluirlista">X</button></li>
                 </ul>
             </div>
 
             <div>
                 <h1>Custos Fixos:</h1>
-                <table border>
+                <table border=5>
 
                     <tr>
                         <td>Aluguel</td>
                         <td>360</td>
-                        <td><input type="submit" class="excluir" value="X"></td>
+                        <td><button onclick="excluirtabela()" class="excluir">X</button></td>
                     </tr>
 
                     <tr>
                         <td>Carvao</td>
                         <td>50</td>
-                        <td><input type="submit" class="excluir" value="X"></td>
+                        <td><button onclick="excluirtabela()" class="excluir">X</button></td>
                     </tr>
 
                 </table>
@@ -65,18 +65,18 @@
 
             <div>
                 <h1>Custos Per Capita:</h1>
-                <table border>
+                <table border = 5>
 
                     <tr>
                         <td>Cerveja</td>
                         <td>200</td>
-                        <td><input type="submit" class="excluir" value="X"></td>
+                        <td><button onclick="excluirtabela()" class="excluir">X</button></td>
                     </tr>
 
                     <tr>
                         <td>Alcatra</td>
                         <td>100</td>
-                        <td><input type="submit" class="excluir" value="X"></td>
+                        <td><button onclick="excluirtabela()" class="excluir">X</button></td>
                     </tr>
 
                 </table>
@@ -86,6 +86,18 @@
         <div>
             <h1>Valor para cada um:</h1>
         </div>
+
+        <div>
+            <h1>teste</h1>
+            <button onclick="pessoa.adicionar()">Adicionar</button>
+            <button onclick="pessoa.excluir()">X</button>
+        </div>
+
+        <table>
+            
+        </table>
+
+        <script src="./script.js"></script>
 
 
     </div>
