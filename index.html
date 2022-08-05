@@ -14,7 +14,7 @@
         <div class="divona">
             <div class="form">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" placeholder="Nome" />
+                
                 <button onclick="adicionar()">Adicionar</button>
             </div>
 
@@ -89,12 +89,15 @@
 
         <div>
             <h1>teste</h1>
-            <button onclick="pessoa.adicionar()">Adicionar</button>
-            <button onclick="pessoa.excluir()">X</button>
+            <label for="nome">Nome:</label>
+             <input type="text" id="nome" placeholder="Nome" />
+            <button onclick="pessoa.adicionarNome()">Adicionar</button>
         </div>
 
+        
+
         <table>
-            
+            <button class="botoes" onclick="pessoa.excluirNome()">X</button>
         </table>
 
         <script src="./script.js"></script>
@@ -106,3 +109,6 @@
 </body>
 
 </html>
+
+
+

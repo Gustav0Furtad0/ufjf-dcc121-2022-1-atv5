@@ -20,14 +20,45 @@
 class Pessoa{
     constructor(){
         this.nome = '';
+        this.arrayProdutos = [];
     }
 
-    adicionar(){
-        alert("Insira um nome!");
+    adicionarNome(){
+        let pessoa = this.lerNome();
+
+        if(this.validaCampo(pessoa)){
+            alert("Pessoa adicionada");
+        }
+
+        console.log(pessoa);
     }
 
-    excluir(){
+    lerNome(){
+        let pessoa = {}
+
+            pessoa.nomepessoa = document.getElementById("nome").value;
+
+            return pessoa;
+        
+    }
+
+    excluirNome(){
         alert("Pessoa excluída");
+    }
+
+    validaCampo(pessoa){
+        let msg = '';
+
+        if(pessoa.nomepessoa == ''){
+            msg += 'Informe o nome da pessoa \n';
+        }
+
+        if(msg != ''){
+            alert(msg);
+            return false
+        }
+
+        return true;
     }
 
 
