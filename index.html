@@ -14,10 +14,12 @@
         <div class="divona">
             <div class="form">
                 <label for="nome">Nome:</label>
-                
-                <button onclick="adicionar()">Adicionar</button>
+                <input type="text" id="nome" placeholder="Nome" />
+                <button onclick="pessoa.adicionarNome()">Adicionar</button>
+    
             </div>
 
+            
             <div class="form">
                 <label for="produto">Produto:</label>
                 <input type="text" id="produto" placeholder="Produto" />
@@ -32,19 +34,17 @@
                  <button onclick="custofixo()">Custo Fixo</button>
                 <button onclick="percapita()">Per Capita</button>
             </div>
+        
 
         </div>
-        <div class="divona">
-            <div>
-                <h1>Pessoas:</h1>
-                <ul id="lista">
-                    <li>Jacinto <button onclick="excluirlista()" class="excluir" id="excluirlista">X</button></li>
-                    <li>Beltrano<button onclick="excluirlista()" class="excluir" id="excluirlista">X</button></li>
-                    <li>Rogerio <button onclick="excluirlista()" class="excluir" id="excluirlista">X</button></li>
-                </ul>
-            </div>
+        
+        <div class="divona2">
 
-            <div>
+                <table id="tabnomes">
+    
+                </table>
+
+                <div class="tab2">
                 <h1>Custos Fixos:</h1>
                 <table border=5>
 
@@ -61,9 +61,7 @@
                     </tr>
 
                 </table>
-            </div>
 
-            <div>
                 <h1>Custos Per Capita:</h1>
                 <table border = 5>
 
@@ -80,25 +78,17 @@
                     </tr>
 
                 </table>
+
+            
             </div>
         </div>
 
-        <div>
+        <div class="total">
             <h1>Valor para cada um:</h1>
         </div>
 
-        <div>
-            <h1>teste</h1>
-            <label for="nome">Nome:</label>
-             <input type="text" id="nome" placeholder="Nome" />
-            <button onclick="pessoa.adicionarNome()">Adicionar</button>
-        </div>
-
+       
         
-
-        <table>
-            <button class="botoes" onclick="pessoa.excluirNome()">X</button>
-        </table>
 
         <script src="./script.js"></script>
 
