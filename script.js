@@ -19,31 +19,79 @@
 
 class Pessoa{
     constructor(){
-        this.nome = '';
-        this.arrayProdutos = [];
+        this.num = 1;
+        this.arrayPessoas = [];
     }
 
     adicionarNome(){
         let pessoa = this.lerNome();
 
         if(this.validaCampo(pessoa)){
-            alert("Pessoa adicionada");
+            this.adicionar(pessoa);
         }
 
-        console.log(pessoa);
+        this.listaTabela();
+        document.getElementById("nome").value='';
+    }
+
+    listaTabela(){
+        let tabnomes = document.getElementById('tabnomes');
+        tabnomes.innerText = '';
+
+        for(let i=0; i< this.arrayPessoas.length; i++){
+            let linhas = tabnomes.insertRow();
+
+            let t_num = linhas.insertCell();
+            let t_nome = linhas.insertCell();
+            let t_excluir = linhas.insertCell();
+
+            t_nome.innerText = this.arrayPessoas[i].nomepessoa;
+            t_num.innerText = this.arrayPessoas[i].num;
+
+            t_num.classList.add("num_tab");
+
+            t_excluir.classList.add("excluir");
+
+            let img = document.createElement("img");
+            img.src = './img/delete.png';
+            img.setAttribute("onclick", "pessoa.deletar("+ this.arrayPessoas[i].num +")");
+
+            t_excluir.appendChild(img);
+
+            console.log(this.arrayPessoas);
+
+        }
+    }
+
+    adicionar(pessoa){
+        this.arrayPessoas.push(pessoa);
+        this.num++;
     }
 
     lerNome(){
         let pessoa = {}
-
-            pessoa.nomepessoa = document.getElementById("nome").value;
+            
+            pessoa.num = this.num;
+            pessoa.nomepessoa = document.getElementById('nome').value;
 
             return pessoa;
         
     }
 
-    excluirNome(){
-        alert("Pessoa excluída");
+    deletar(num){
+
+        let tabnomes = document.getElementById('tabnomes');
+
+        for(let i=0; i<this.arrayPessoas.length; i++){
+            if(this.arrayPessoas[i].num == num){
+                this.arrayPessoas.splice(i, 1);
+                tabnomes.deleteRow(i);
+            }
+        }
+
+        console.log(this.arrayPessoas);
+
+       // alert("Pessoa excluída");
     }
 
     validaCampo(pessoa){
