@@ -66,6 +66,9 @@ class Pessoa{
     adicionar(pessoa){
         this.arrayPessoas.push(pessoa);
         this.num++;
+        numpessoas++;
+        console.log(numpessoas);
+        calculaPrecoFinal();
     }
 
     lerNome(){
@@ -91,6 +94,9 @@ class Pessoa{
 
         console.log(this.arrayPessoas);
 
+        numpessoas--;
+        console.log(numpessoas)
+        calculaPrecoFinal();
        // alert("Pessoa excluída");
     }
 

@@ -49,37 +49,21 @@
             <div>
                 <h3>Custos Fixos:</h1>
                     <table id="tableFixo" border=5>
-
                         <tr>
-                            <td>Aluguel</td>
-                            <td>360</td>
-                            <td><button onclick="excluiItem()" class="excluir">X</button></td>
+                            <td>Item</td>
+                            <td>Preço</td>
+                            <td>Excluir</td>
                         </tr>
-
-                        <tr>
-                            <td>Carvao</td>
-                            <td>50</td>
-                            <td><button onclick="excluiItem()" class="excluir">X</button></td>
-                        </tr>
-
                     </table>
             </div>
             <div>
                 <h3>Custos Per Capita:</h1>
                     <table id="tablePC" border=5>
-
                         <tr>
-                            <td>Cerveja</td>
-                            <td>200</td>
-                            <td><button onclick="excluiItem()" class="excluir">X</button></td>
+                            <td>Item</td>
+                            <td>Preço</td>
+                            <td>Excluir</td>
                         </tr>
-
-                        <tr>
-                            <td>Alcatra</td>
-                            <td>100</td>
-                            <td><button onclick="excluiItem()" class="excluir">X</button></td>
-                        </tr>
-
                     </table>
             </div>
 
@@ -96,11 +80,13 @@
         const produto = document.querySelector("#produto");
         const val = document.querySelector("#valor");
         const tableFixo = document.querySelector("#tableFixo");
-        const tablePC = document.querySelector("#tablePC")
+        const tablePC = document.querySelector("#tablePC");
+        const precopessoa = document.querySelector("#precopessoa");
         var custofixo = 0;
         var custocp = 0;
+        var numpessoas = 0;
 
-        addCustoFixo = () =>{
+        const addCustoFixo = () =>{
             if(!produto.value || !val.value) {
                 alert("Informe o nome e o valor do produto para adiciná-lo");
                 return;
@@ -113,10 +99,11 @@
                     <td>${Number(val.value).toFixed(2)}</td>
                     <td><button onclick="excluiItemFixo()" class="excluir">X</button></td>
                 </tr>
-            `
+            `;
+            calculaPrecoFinal();
         }
 
-        addPerCapita = () =>{
+        const addPerCapita = () =>{
             if(!produto.value || !val.value) {
                 alert("Informe o nome e o valor do produto para adiciná-lo");
                 return;
@@ -129,21 +116,34 @@
                     <td>${Number(val.value).toFixed(2)}</td>
                     <td><button onclick="excluiItemPC(this)" class="excluir">X</button></td>
                 </tr>
-            `
+            `;
+            calculaPrecoFinal();
         }
 
-        excluiItemPC = e => {
+        const excluiItemPC = e => {
             let trItem = e.parentNode.parentNode;
             let precoItem = Number(trItem.getAttribute('preco'));
             custocp -= precoItem;
             trItem.remove();
+            calculaPrecoFinal();
         }
 
-        excluiFixo = e => {
+        const excluiItemFixo = e => {
             let trItem = e.parentNode.parentNode;
             let precoItem = Number(trItem.getAttribute('preco'));
             custofixo -= precoItem;
             trItem.remove();
+            calculaPrecoFinal();
+        }
+
+        const calculaPrecoFinal = () => {
+            if(numpessoas != 0) {
+                let valor = custocp;
+                valor += (custofixo / numpessoas);
+                precopessoa.innerHTML = `R$ ${valor.toFixed(2)}`;
+            } else {
+                precopessoa.innerHTML = `R$ 0,00`
+            }
         }
 
         function dpe() {
