@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <title>ATV 5</title>
 </head>
 
@@ -13,26 +14,23 @@
     <div class="main">
         <div class="divona">
             <div class="form">
-                <label for="nome">Nome:</label>
+                <label class="fonte" for="nome">Nome</label>
                 <input type="text" id="nome" placeholder="Nome" />
-                <button onclick="pessoa.adicionarNome()">Adicionar</button>
+                <button class="botao1" onclick="pessoa.adicionarNome()">Adicionar</button>
 
             </div>
 
 
             <div class="form">
-                <label for="produto">Produto:</label>
+                <label class="fonte" for="produto">Produto</label>
                 <input type="text" name="produto" id="produto" placeholder="Produto" />
             </div>
 
             <div class="form">
-                <label for="valor">Valor Unitário:</label>
+                <label class="fonte" for="valor">Valor Unitário</label>
                 <input name="valor" type="number" id="valor" placeholder="Valor Unitário" />
-            </div>
-
-            <div class="botoes">
-                <button onclick="addCustoFixo()">Custo Fixo</button>
-                <button onclick="addPerCapita()">Per Capita</button>
+                <button class="botao1 margem" onclick="addCustoFixo()">Custo Fixo</button>
+                <button class="botao1" onclick="addPerCapita()">Per Capita</button>
             </div>
 
 
@@ -40,15 +38,15 @@
 
         <div class="divona2">
             <div>
-                <h3>Lista Pessoas:
+                <h3 class="fonte align">Lista Pessoas
                 </h3>
-                <table id="tabnomes">
+                <table class="fonte size borda" id="tabnomes">
 
                 </table>
             </div>
             <div>
-                <h3>Custos Fixos:</h1>
-                    <table id="tableFixo" border=5>
+                <h3 class="fonte align">Custos Fixos</h1>
+                    <table class="fonte size" id="tableFixo" border=5>
                         <tr>
                             <td>Item</td>
                             <td>Preço</td>
@@ -57,8 +55,8 @@
                     </table>
             </div>
             <div>
-                <h3>Custos Per Capita:</h1>
-                    <table id="tablePC" border=5>
+                <h3 class="fonte align">Custos Per Capita</h1>
+                    <table class="fonte size" id="tablePC" border=5>
                         <tr>
                             <td>Item</td>
                             <td>Preço</td>
@@ -70,7 +68,7 @@
         </div>
 
         <div class="valorcadaum">
-            <h3>Valor para cada um: <span id="precopessoa">R$ 0,00</span></h3>
+            <h3 class="fonte">Valor para cada um : <span id="precopessoa">R$ 0,00</span></h3>
         </div>
 
 
