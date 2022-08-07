@@ -16,10 +16,10 @@
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" placeholder="Nome" />
                 <button onclick="pessoa.adicionarNome()">Adicionar</button>
-    
+
             </div>
 
-            
+
             <div class="form">
                 <label for="produto">Produto:</label>
                 <input type="text" id="produto" placeholder="Produto" />
@@ -31,74 +31,68 @@
             </div>
 
             <div class="botoes">
-                 <button onclick="custofixo()">Custo Fixo</button>
+                <button onclick="custofixo()">Custo Fixo</button>
                 <button onclick="percapita()">Per Capita</button>
             </div>
-        
+
 
         </div>
-        
+
         <div class="divona2">
-
+            <div>
+                <h3>Lista Pessoas:
+                </h3>
                 <table id="tabnomes">
-    
-                </table>
-
-                <div class="tab2">
-                <h1>Custos Fixos:</h1>
-                <table border=5>
-
-                    <tr>
-                        <td>Aluguel</td>
-                        <td>360</td>
-                        <td><button onclick="excluirtabela()" class="excluir">X</button></td>
-                    </tr>
-
-                    <tr>
-                        <td>Carvao</td>
-                        <td>50</td>
-                        <td><button onclick="excluirtabela()" class="excluir">X</button></td>
-                    </tr>
 
                 </table>
-
-                <h1>Custos Per Capita:</h1>
-                <table border = 5>
-
-                    <tr>
-                        <td>Cerveja</td>
-                        <td>200</td>
-                        <td><button onclick="excluirtabela()" class="excluir">X</button></td>
-                    </tr>
-
-                    <tr>
-                        <td>Alcatra</td>
-                        <td>100</td>
-                        <td><button onclick="excluirtabela()" class="excluir">X</button></td>
-                    </tr>
-
-                </table>
-
-            
             </div>
+            <div>
+                <h3>Custos Fixos:</h1>
+                    <table border=5>
+
+                        <tr>
+                            <td>Aluguel</td>
+                            <td>360</td>
+                            <td><button onclick="excluirtabela()" class="excluir">X</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>Carvao</td>
+                            <td>50</td>
+                            <td><button onclick="excluirtabela()" class="excluir">X</button></td>
+                        </tr>
+
+                    </table>
+            </div>
+            <div>
+                <h3>Custos Per Capita:</h1>
+                    <table border=5>
+
+                        <tr>
+                            <td>Cerveja</td>
+                            <td>200</td>
+                            <td><button onclick="excluirtabela()" class="excluir">X</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>Alcatra</td>
+                            <td>100</td>
+                            <td><button onclick="excluirtabela()" class="excluir">X</button></td>
+                        </tr>
+
+                    </table>
+            </div>
+
         </div>
 
-        <div class="total">
-            <h1>Valor para cada um:</h1>
+        <div class="valorcadaum">
+            <h3>Valor para cada um: <span id="precopessoa">R$ 0,00</span></h3>
         </div>
-
-       
-        
-
-        <script src="./script.js"></script>
 
 
     </div>
 
-
+    <script src="./script.js"></script>
 </body>
 
 </html>
-
-
-
