@@ -57,9 +57,7 @@ class Pessoa{
             img.setAttribute("onclick", "pessoa.deletar("+ this.arrayPessoas[i].num +")");
 
             t_excluir.appendChild(img);
-
-            console.log(this.arrayPessoas);
-
+            calculaPrecoFinal();
         }
     }
 
@@ -91,8 +89,6 @@ class Pessoa{
                 tabnomes.deleteRow(i);
             }
         }
-
-        console.log(this.arrayPessoas);
 
         numpessoas--;
         console.log(numpessoas)
