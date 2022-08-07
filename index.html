@@ -22,17 +22,17 @@
 
             <div class="form">
                 <label for="produto">Produto:</label>
-                <input type="text" id="produto" placeholder="Produto" />
+                <input type="text" name="produto" id="produto" placeholder="Produto" />
             </div>
 
             <div class="form">
-                <label for="val">Valor Unitário:</label>
-                <input type="text" id="val" placeholder="Valor Unitário" />
+                <label for="valor">Valor Unitário:</label>
+                <input name="valor" type="number" id="valor" placeholder="Valor Unitário" />
             </div>
 
             <div class="botoes">
-                <button onclick="custofixo()">Custo Fixo</button>
-                <button onclick="percapita()">Per Capita</button>
+                <button onclick="addCustoFixo()">Custo Fixo</button>
+                <button onclick="addPerCapita()">Per Capita</button>
             </div>
 
 
@@ -48,7 +48,7 @@
             </div>
             <div>
                 <h3>Custos Fixos:</h1>
-                    <table border=5>
+                    <table id="tableFixo" border=5>
 
                         <tr>
                             <td>Aluguel</td>
@@ -66,7 +66,7 @@
             </div>
             <div>
                 <h3>Custos Per Capita:</h1>
-                    <table border=5>
+                    <table id="tablePC" border=5>
 
                         <tr>
                             <td>Cerveja</td>
@@ -91,6 +91,47 @@
 
 
     </div>
+
+    <script>
+        const produto = document.querySelector("#produto");
+        const val = document.querySelector("#valor");
+        const tableFixo = document.querySelector("#tableFixo");
+        const tablePC = document.querySelector("#tablePC")
+        var custofixo = 0;
+        var custocp = 0;
+
+        addCustoFixo = () =>{
+            if(!produto.value || !val.value) {
+                alert("Informe o nome e o valor do produto para adiciná-lo");
+                return;
+            }
+            custofixo += Number(val.value);
+
+            tableFixo.innerHTML += `
+                <tr>
+                    <td>${produto.value}</td>
+                    <td>${Number(val.value).toFixed(2)}</td>
+                    <td><button onclick="excluirtabela()" class="excluir">X</button></td>
+                </tr>
+            `
+        }
+
+        addPerCapita = () =>{
+            if(!produto.value || !val.value) {
+                alert("Informe o nome e o valor do produto para adiciná-lo");
+                return;
+            }
+            custofixo += Number(val.value);
+
+            tablePC.innerHTML += `
+                <tr>
+                    <td>${produto.value}</td>
+                    <td>${Number(val.value).toFixed(2)}</td>
+                    <td><button onclick="excluirtabela()" class="excluir">X</button></td>
+                </tr>
+            `
+        }
+    </script>
 
     <script src="./script.js"></script>
 </body>
