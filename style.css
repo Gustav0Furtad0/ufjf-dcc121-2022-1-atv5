@@ -14,6 +14,7 @@ body{
     font-style: normal;
 }
 
+
 .size {
     font-size: 15px;
 }
@@ -150,5 +151,6 @@ li{
 
 #precopessoa {
     font-size: 1.3em;
-    color: rgb(255, 255, 255);
+    color: #528009;
 }
+
