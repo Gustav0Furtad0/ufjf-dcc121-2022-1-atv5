@@ -93,16 +93,18 @@
             if (tp == 'f') {
                 custofixo += Number(val.value);
                 table = "#tableFixo";
+                console.log(`Custo Fixo: ${custofixo}`);    
             } else if (tp == 'pc') {
                 table = "#tablePC";
                 custocp += Number(val.value);
+                console.log(`Custo Per Capita: ${custocp}`);
             }
 
             document.querySelector(table).innerHTML += `
                 <tr preco=${Number(val.value)}>
                     <td>${produto.value}</td>
                     <td>${Number(val.value).toFixed(2)}</td>
-                    <td><button onclick="excluiItem(this, 'fixo')" class="excluir">X</button></td>
+                    <td><button onclick="excluiItem(this, '${tp}')" class="excluir">X</button></td>
                 </tr>
             `;
             calculaPrecoFinal();
@@ -111,12 +113,15 @@
         const excluiItem = (e, tp) => {
             let trItem = e.parentNode.parentNode;
             let precoItem = Number(trItem.getAttribute('preco'));
-            if (tp == 'pc') 
+            if (tp == 'pc') {
                 custocp -= precoItem;
-            else
-                custofixo -= precoItem;
+                console.log(`Custo Per Capita: ${custocp}`);
+            } else if (tp == 'f') {
+               custofixo -= precoItem;
+               console.log(`Custo Fixo: ${custofixo}`);
+            }
             trItem.remove();
-            calculaPrecoFinal();
+            calculaPrecoFinal();  
         }
 
         const calculaPrecoFinal = () => {
