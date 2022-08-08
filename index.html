@@ -95,7 +95,7 @@
                 <tr preco=${Number(val.value)}>
                     <td>${produto.value}</td>
                     <td>${Number(val.value).toFixed(2)}</td>
-                    <td><button onclick="excluiItemFixo()" class="excluir">X</button></td>
+                    <td><button onclick="excluiItemFixo(this)" class="excluir">X</button></td>
                 </tr>
             `;
             calculaPrecoFinal();
