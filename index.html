@@ -29,8 +29,8 @@
             <div class="form">
                 <label class="fonte" for="valor">Valor Unitário</label>
                 <input name="valor" type="number" id="valor" placeholder="Valor Unitário" />
-                <button class="botao1 margem" onclick="addCustoFixo()">Custo Fixo</button>
-                <button class="botao1" onclick="addPerCapita()">Per Capita</button>
+                <button class="botao1 margem" onclick="addCusto('f')">Custo Fixo</button>
+                <button class="botao1" onclick="addCusto('pc')">Per Capita</button>
             </div>
 
 
@@ -77,59 +77,44 @@
     <script>
         const produto = document.querySelector("#produto");
         const val = document.querySelector("#valor");
-        const tableFixo = document.querySelector("#tableFixo");
-        const tablePC = document.querySelector("#tablePC");
         const precopessoa = document.querySelector("#precopessoa");
         var custofixo = 0;
         var custocp = 0;
         var numpessoas = 0;
 
-        const addCustoFixo = () =>{
+        const addCusto = tp => {
+            let table;
+
             if(!produto.value || !val.value) {
                 alert("Informe o nome e o valor do produto para adiciná-lo");
                 return;
             }
-            custofixo += Number(val.value);
 
-            tableFixo.innerHTML += `
+            if (tp == 'f') {
+                custofixo += Number(val.value);
+                table = "#tableFixo";
+            } else if (tp == 'pc') {
+                table = "#tablePC";
+                custocp += Number(val.value);
+            }
+
+            document.querySelector(table).innerHTML += `
                 <tr preco=${Number(val.value)}>
                     <td>${produto.value}</td>
                     <td>${Number(val.value).toFixed(2)}</td>
-                    <td><button onclick="excluiItemFixo(this)" class="excluir">X</button></td>
+                    <td><button onclick="excluiItem(this, 'fixo')" class="excluir">X</button></td>
                 </tr>
             `;
             calculaPrecoFinal();
         }
 
-        const addPerCapita = () =>{
-            if(!produto.value || !val.value) {
-                alert("Informe o nome e o valor do produto para adiciná-lo");
-                return;
-            }
-            custocp += Number(val.value);
-
-            tablePC.innerHTML += `
-                <tr preco=${Number(val.value)}>
-                    <td>${produto.value}</td>
-                    <td>${Number(val.value).toFixed(2)}</td>
-                    <td><button onclick="excluiItemPC(this)" class="excluir">X</button></td>
-                </tr>
-            `;
-            calculaPrecoFinal();
-        }
-
-        const excluiItemPC = e => {
+        const excluiItem = (e, tp) => {
             let trItem = e.parentNode.parentNode;
             let precoItem = Number(trItem.getAttribute('preco'));
-            custocp -= precoItem;
-            trItem.remove();
-            calculaPrecoFinal();
-        }
-
-        const excluiItemFixo = e => {
-            let trItem = e.parentNode.parentNode;
-            let precoItem = Number(trItem.getAttribute('preco'));
-            custofixo -= precoItem;
+            if (tp == 'pc') 
+                custocp -= precoItem;
+            else
+                custofixo -= precoItem;
             trItem.remove();
             calculaPrecoFinal();
         }
